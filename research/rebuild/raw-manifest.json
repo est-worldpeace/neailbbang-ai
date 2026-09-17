@@ -1,0 +1,42 @@
+{
+  "ref": "d4c8fb84140964a122bbbd851e712b1f11ef3a69",
+  "retrievedAt": "2026-09-14T06:28:11.849Z",
+  "files": [
+    {
+      "name": "2022_1.xlsx",
+      "url": "https://raw.githubusercontent.com/lleisner/bakery_sales_forecasting/d4c8fb84140964a122bbbd851e712b1f11ef3a69/data/raw_sources/sales/2022_1.xlsx",
+      "bytes": 486405,
+      "sha256": "eb7ea48e9c0062dd3d5f51324bf2daf8f917a957a12c2d8d0f8c9b6389931c58"
+    },
+    {
+      "name": "2022_2.xlsx",
+      "url": "https://raw.githubusercontent.com/lleisner/bakery_sales_forecasting/d4c8fb84140964a122bbbd851e712b1f11ef3a69/data/raw_sources/sales/2022_2.xlsx",
+      "bytes": 793669,
+      "sha256": "9b0567d9860decc11bf9bc5e7d997110a371395abc73c0152058ef02ad6949e2"
+    },
+    {
+      "name": "2022_3.xlsx",
+      "url": "https://raw.githubusercontent.com/lleisner/bakery_sales_forecasting/d4c8fb84140964a122bbbd851e712b1f11ef3a69/data/raw_sources/sales/2022_3.xlsx",
+      "bytes": 598703,
+      "sha256": "09da2b0ab913ffb4444c1bf51808d89119286e68afa350258535b3edea933169"
+    },
+    {
+      "name": "2023_1.xlsx",
+      "url": "https://raw.githubusercontent.com/lleisner/bakery_sales_forecasting/d4c8fb84140964a122bbbd851e712b1f11ef3a69/data/raw_sources/sales/2023_1.xlsx",
+      "bytes": 410100,
+      "sha256": "1f341e127145cb06e6d0ab554b0ba06c78382b8e4592e61da7948546b8c7a91d"
+    },
+    {
+      "name": "2023_2.xlsx",
+      "url": "https://raw.githubusercontent.com/lleisner/bakery_sales_forecasting/d4c8fb84140964a122bbbd851e712b1f11ef3a69/data/raw_sources/sales/2023_2.xlsx",
+      "bytes": 839396,
+      "sha256": "ba212561934e932a1de2b626361ad40054b1214e0a08cabf23ca07652d0756e7"
+    },
+    {
+      "name": "2023_3.xlsx",
+      "url": "https://raw.githubusercontent.com/lleisner/bakery_sales_forecasting/d4c8fb84140964a122bbbd851e712b1f11ef3a69/data/raw_sources/sales/2023_3.xlsx",
+      "bytes": 673698,
+      "sha256": "1cbea078cf64f51a449052037a04d201bb005e3a2f3649787e710e7cb44c1e99"
+    }
+  ]
+}

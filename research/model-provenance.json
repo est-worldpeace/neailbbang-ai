@@ -1,0 +1,18 @@
+{
+  "version": "bakery-research-port-1.0",
+  "source_url": "https://github.com/lleisner/bakery_sales_forecasting/tree/d4c8fb84140964a122bbbd851e712b1f11ef3a69/data/raw_sources/sales",
+  "train_start": "2022-02-26",
+  "train_end": "2023-05-05",
+  "training_rows": 2111,
+  "products": [
+    11,
+    12,
+    13,
+    21,
+    35,
+    82
+  ],
+  "scope": "Fitted research base estimators. Unseen app product IDs have all-zero product indicators. Store transfer is unvalidated. App uses rolling historical residual correction; no automatic base-model retraining.",
+  "sha256": "c309c6f5ab15539e20acd07d5acb4eeff31f460432bc6b710e13e850d579d5bb",
+  "bytes": 7644665
+}

@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "candidateSettings": 34,
+  "timeBlocks": 3,
+  "candidateRuns": 102,
+  "customModelRuns": 3,
+  "totalCompletedRuns": 105,
+  "predictionRows": 34090,
+  "allFinite": true,
+  "duplicatePredictionKeys": 0,
+  "metricsIndependentlyRecomputedFromPredictions": true,
+  "sameDayAndFutureOutcomeFeatureInvariance": true,
+  "featureInputDatesStrictlyBeforeTarget": true,
+  "testDataUsedForParameterSelection": false,
+  "historicalDatasetPreviouslyExplored": true,
+  "checks": [
+    {
+      "splitId": "split-1",
+      "sameObservationKeysForAll35Models": true,
+      "n": 370,
+      "trainingAndCalibrationBeforeTest": true
+    },
+    {
+      "splitId": "split-2",
+      "sameObservationKeysForAll35Models": true,
+      "n": 366,
+      "trainingAndCalibrationBeforeTest": true
+    },
+    {
+      "splitId": "split-3",
+      "sameObservationKeysForAll35Models": true,
+      "n": 238,
+      "trainingAndCalibrationBeforeTest": true
+    }
+  ]
+}

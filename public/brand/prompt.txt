@@ -1,0 +1,20 @@
+Built-in image_gen mode
+
+INITIAL GENERATION
+Use case: logo-brand
+Asset type: production app icon for "내일의 빵", a Korean bakery planning app; the image itself contains NO text.
+Primary request: Create one original, exceptionally simple and memorable bread-and-sunrise symbol. A warm ivory loaf of bread with a softly domed top and stable rounded base forms the foreground. Two or three bold orange diagonal scoring cuts make it clearly read as fresh bread. Integrate a small rising sun and just three short thick rays above the loaf into the same compact, balanced emblem, suggesting tomorrow and foresight. The bread must remain the dominant, immediately recognizable silhouette.
+Style: flat geometric brand illustration with optically balanced rounded shapes, crisp clean edges, extremely economical details, professional polished app identity.
+Composition: one centered emblem, approximately 65 percent of the square canvas, generous even safety margins. Square image with a solid full-bleed burnt-orange background. No outer frame, no rendered phone, no app mockup, no rounded container drawn into the square.
+Palette: burnt orange #c74916 background, warm cream #fff0e7 bread and rays, restrained golden orange #f6b85b sunrise accent. Strong contrast and legibility at 32 px.
+Constraints: one finished icon only; no words, Korean letters, initials, numbers, charts, arrows, faces, border, watermark, gradients, texture, shadows, 3D, extra objects, or fine lines. Keep all meaningful artwork safely inside the central 70 percent so operating systems may round or mask the icon.
+
+FINAL REFINEMENT
+Use case: logo-brand
+Edit target: the supplied bread-and-sunrise icon.
+Keep the exact loaf silhouette, three diagonal bread scores, sunrise semicircle, three rays, central composition and safe margins.
+Make this a finished OPAQUE app icon: fill every background pixel of the entire square, including all corners, with solid burnt orange #c74916 at full opacity. There must be NO transparency.
+Render the loaf and rays in uniform flat warm ivory #fff0e7 and the semicircle in flat golden orange #f6b85b. Render the three bread scoring marks in background orange #c74916. Remove all shadows, glows, gradient shading, soft edge halos and textures. Clean anti-aliased geometric edges only. No text, no frame, no additional objects. Single square app icon, not a mockup.
+
+Selected original: exec-d00a2ce4-0c40-4b05-b8a9-ed19e8852505.png
+Derivatives are mechanical Lanczos3 resizes of the selected bitmap, with no compositional edits.

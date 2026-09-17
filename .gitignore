@@ -1,0 +1,66 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/.vinext/
+/out/
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+next-env.d.ts
+*.tsbuildinfo
+/dist/
+/.wrangler/
+# Checkout-local execution profile and tool state; never publish them.
+/.sites-runtime/
+/.agents/
+/.codex/
+/outputs/
+/work/
+
+# Local data and backups stay on the current device.
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+/backups/
+
+# Reproducible research keeps code and results, not local Python installations.
+/research/rebuild/python-deps/
+/research/rebuild/raw/
+/research/rebuild/cache/
+/research/rebuild/*.npz
+/research/rebuild/feature-rows.csv
+/research/rebuild/daily-sales.csv
+__pycache__/
+*.py[cod]
+.venv/

@@ -1,0 +1,97 @@
+name: Rebuild bakery benchmark
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'research/rebuild/**'
+      - '!research/rebuild/rolling_benchmark.py'
+      - '!research/rebuild/test_rolling_benchmark.py'
+      - '!research/rebuild/chronos*'
+      - '.github/workflows/rebuild-benchmark.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bakery-benchmark-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OMP_NUM_THREADS: '2'
+      OPENBLAS_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      NUMEXPR_NUM_THREADS: '2'
+      PYTHONHASHSEED: '20260914'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - name: Install research dependencies
+        run: |
+          python -m pip install numpy pandas openpyxl scipy scikit-learn statsmodels lightgbm xgboost catboost
+          python -m pip install torch==2.14.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip freeze > research/rebuild/resolved-requirements.txt
+      - name: Download and verify the pinned public source
+        run: |
+          python - <<'PY'
+          import hashlib, json, pathlib, urllib.request
+          root = pathlib.Path('research/rebuild')
+          manifest = json.loads((root / 'raw-manifest.json').read_text(encoding='utf-8-sig'))
+          (root / 'raw').mkdir(exist_ok=True)
+          for item in manifest['files']:
+              payload = urllib.request.urlopen(item['url'], timeout=90).read()
+              assert len(payload) == item['bytes'], item['name'] + ': byte count mismatch'
+              assert hashlib.sha256(payload).hexdigest() == item['sha256'], item['name'] + ': SHA-256 mismatch'
+              (root / 'raw' / item['name']).write_bytes(payload)
+              print(item['name'], len(payload), 'SHA-256 verified')
+          PY
+      - name: Verify all six neural networks train correctly
+        run: |
+          python - <<'PY'
+          import sys, numpy as np
+          sys.path.insert(0, 'research/rebuild')
+          import deep_models as d
+          rng = np.random.default_rng(41)
+          x = rng.normal(size=(96, 38))
+          s = rng.uniform(0, 35, size=(96, 28, 2)); s[:, :, 1] = 1
+          y = np.maximum(5, 25 + 4*x[:, 0] + 3*x[:, 1])
+          for name in d.MODEL_SPECS:
+              predicted = d.fit_predict(name, x[:80], s[:80], y[:80], x[80:], s[80:], epochs=2)
+              assert predicted.shape == (16, 4)
+              assert np.isfinite(predicted).all() and (predicted >= 0).all()
+              assert (np.diff(predicted, axis=1) >= 0).all()
+              assert all(run['parameterChangeL2'] > 0 for run in d.LAST_TRAINING_RUN['seedRuns'])
+              assert all(np.isfinite(run['maximumGradientL2']) for run in d.LAST_TRAINING_RUN['seedRuns'])
+              print(name, 'shape, ordered quantiles, finite gradients and changed weights verified')
+          first = d.fit_predict('mlp', x[:80], s[:80], y[:80], x[80:], s[80:], epochs=2)
+          d.fit_predict('mlp', x[:80], s[:80], y[:80], x[80:]*3, s[80:]*2, epochs=2)
+          alternate_training = d.LAST_TRAINING_RUN['seedRuns']
+          again = d.fit_predict('mlp', x[:80], s[:80], y[:80], x[80:], s[80:], epochs=2)
+          assert np.array_equal(first, again)
+          assert alternate_training == d.LAST_TRAINING_RUN['seedRuns']
+          print('Fixed seeds and independence from evaluation inputs verified')
+          PY
+      - name: Train and evaluate all models on three chronological splits
+        run: python research/rebuild/run_benchmark.py
+      - name: Save results and reproducibility records
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: bakery-benchmark-${{ github.run_id }}
+          retention-days: 30
+          if-no-files-found: error
+          path: |
+            public/research/**
+            research/rebuild/*.json
+            research/rebuild/*.csv
+            research/rebuild/*.npz
+            research/rebuild/resolved-requirements.txt
+            research/rebuild/cache/**

@@ -1,0 +1,6 @@
+seriesId,variantId,modelId,group,name,n,actualTotal,absoluteError,wape,mae,over,under,loss,rankComparisonCount,rank_loss,rank_wape,rank_mae
+chronos/raw,raw,chronos-bolt-small,chronos,Chronos-Bolt Small · 원시 zero-shot,974,23373,6236.2405953407288,26.681387050617076,6.4027110835120418,6202,1682,11248,36,14,2,2
+chronos/daily56,daily56,chronos-bolt-small,chronos,Chronos-Bolt Small · 매일 56일 보정,974,23373,6306.0359752178192,26.980002461035465,6.4743695844125453,6295,1630,11185,36,14,4,4
+rolling/extra-trees,rolling-daily,extra-trees,rolling,Extra Trees 분위수숲 · 매일 보정,974,23373,6406,27.407692636803148,6.5770020533880906,5736,1735,10941,,,,
+rolling/histogram-small,rolling-daily,histogram-small,rolling,히스토그램 부스팅 · 작은 나무 · 매일 보정,974,23373,6441.5516369541992,27.559798215694173,6.613502707345174,5814,1585,10569,,,,
+custom/custom-weekly-daily,custom-weekly-daily,custom-final,custom,최종 모델 · 매주 비중 + 매일 보정,974,23373,6033.9066886149731,25.815713381315934,6.1949760663398079,5915,1455,10280,,,,

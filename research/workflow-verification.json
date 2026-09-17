@@ -1,0 +1,12 @@
+{
+  "synthetic": true,
+  "rows": 126,
+  "frozenForecasts": 66,
+  "compared": 49,
+  "stockoutExcluded": 14,
+  "futureAndSameDayOutcomeInvariant": true,
+  "frozenForecastsUnmodified": true,
+  "inventoryBalanced": true,
+  "coldStartLabeled": true,
+  "stockoutExclusion": true
+}

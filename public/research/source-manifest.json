@@ -1,0 +1,1627 @@
+{
+  "source": {
+    "ref": "d4c8fb84140964a122bbbd851e712b1f11ef3a69",
+    "retrievedAt": "2026-09-14T06:28:11.849Z",
+    "files": [
+      {
+        "name": "2022_1.xlsx",
+        "url": "https://raw.githubusercontent.com/lleisner/bakery_sales_forecasting/d4c8fb84140964a122bbbd851e712b1f11ef3a69/data/raw_sources/sales/2022_1.xlsx",
+        "bytes": 486405,
+        "sha256": "eb7ea48e9c0062dd3d5f51324bf2daf8f917a957a12c2d8d0f8c9b6389931c58"
+      },
+      {
+        "name": "2022_2.xlsx",
+        "url": "https://raw.githubusercontent.com/lleisner/bakery_sales_forecasting/d4c8fb84140964a122bbbd851e712b1f11ef3a69/data/raw_sources/sales/2022_2.xlsx",
+        "bytes": 793669,
+        "sha256": "9b0567d9860decc11bf9bc5e7d997110a371395abc73c0152058ef02ad6949e2"
+      },
+      {
+        "name": "2022_3.xlsx",
+        "url": "https://raw.githubusercontent.com/lleisner/bakery_sales_forecasting/d4c8fb84140964a122bbbd851e712b1f11ef3a69/data/raw_sources/sales/2022_3.xlsx",
+        "bytes": 598703,
+        "sha256": "09da2b0ab913ffb4444c1bf51808d89119286e68afa350258535b3edea933169"
+      },
+      {
+        "name": "2023_1.xlsx",
+        "url": "https://raw.githubusercontent.com/lleisner/bakery_sales_forecasting/d4c8fb84140964a122bbbd851e712b1f11ef3a69/data/raw_sources/sales/2023_1.xlsx",
+        "bytes": 410100,
+        "sha256": "1f341e127145cb06e6d0ab554b0ba06c78382b8e4592e61da7948546b8c7a91d"
+      },
+      {
+        "name": "2023_2.xlsx",
+        "url": "https://raw.githubusercontent.com/lleisner/bakery_sales_forecasting/d4c8fb84140964a122bbbd851e712b1f11ef3a69/data/raw_sources/sales/2023_2.xlsx",
+        "bytes": 839396,
+        "sha256": "ba212561934e932a1de2b626361ad40054b1214e0a08cabf23ca07652d0756e7"
+      },
+      {
+        "name": "2023_3.xlsx",
+        "url": "https://raw.githubusercontent.com/lleisner/bakery_sales_forecasting/d4c8fb84140964a122bbbd851e712b1f11ef3a69/data/raw_sources/sales/2023_3.xlsx",
+        "bytes": 673698,
+        "sha256": "1cbea078cf64f51a449052037a04d201bb005e3a2f3649787e710e7cb44c1e99"
+      }
+    ]
+  },
+  "codeSha256": {
+    "classical_models.py": "145d15d2930d773ada8061aa6b7ebe9e2d699755a4adf26b6b46912420a8c4ee",
+    "deep_models.py": "abd768a0650f1f1570b4ca7033a35fb4b700f5585c852a5bf764e8b543078b1f",
+    "prepare_data.py": "e93d0b2f8d6c7899f7348358ee634a3873e9df4b3542391ad79b1b14be3e274a",
+    "run_benchmark.py": "c5feeb456bba7cfffb4f1c652be8cd5c66f7f00ff5b47ad9c5cc4e78e47decdd",
+    "configs.json": "b0e616481753beff1665ebdf4f7bf94f586e57bec9293096bf1722b48a69c894"
+  },
+  "codeSignature": "6e273c036922660165b62f1e7147366f8eaef769594096aa5e205fdec0c458a0",
+  "packages": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "statsmodels": "0.15.0",
+    "lightgbm": "4.7.0",
+    "xgboost": "3.4.1",
+    "catboost": "1.2.10",
+    "torch": "2.14.0+cpu"
+  },
+  "dataQuality": {
+    "rawSelectedRows": 3508,
+    "allHoursMissingRows": 0,
+    "negativeHourlyCells": 20,
+    "negativeDailyRowsExcluded": 3,
+    "negativeDailyRecords": [
+      {
+        "date": "2022-07-02T00:00:00.000",
+        "product": 35,
+        "y": -1.0
+      },
+      {
+        "date": "2022-07-07T00:00:00.000",
+        "product": 13,
+        "y": -1.0
+      },
+      {
+        "date": "2022-08-08T00:00:00.000",
+        "product": 35,
+        "y": -2.0
+      }
+    ],
+    "duplicateProductDates": 0
+  },
+  "seed": 20260914,
+  "elapsedSeconds": 762.7876913547516,
+  "training": [
+    {
+      "splitId": "split-1",
+      "modelId": "last-day",
+      "seconds": 0.12371067899999844,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "last-week",
+      "seconds": 0.08800300400000083,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "recent-7",
+      "seconds": 0.31163179899999705,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "weekday-8",
+      "seconds": 0.3708124489999989,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "ridge",
+      "seconds": 0.0042663159999989375,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "elastic-net",
+      "seconds": 0.009915427999999338,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "huber",
+      "seconds": 0.16658758200000534,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "linear-quantile-0",
+      "seconds": 2.751025870999996,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "linear-quantile-1",
+      "seconds": 0.6825762480000037,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "spline-ridge",
+      "seconds": 0.01784294000000841,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "poisson",
+      "seconds": 0.2855688460000039,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "negative-binomial",
+      "seconds": 0.622409826000009,
+      "warnings": [
+        "unclosed file <_io.BufferedReader name='/home/runner/work/naeil-bbang/naeil-bbang/research/rebuild/raw/2023_3.xlsx'>"
+      ]
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "svr",
+      "seconds": 0.2980365539999923,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "knn",
+      "seconds": 0.014405698000004463,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "random-forest",
+      "seconds": 1.8652585520000002,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "extra-trees",
+      "seconds": 0.9922775240000021,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "histogram-small",
+      "seconds": 1.2254230240000084,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "histogram-medium",
+      "seconds": 2.7765435410000094,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "histogram-large",
+      "seconds": 6.391376637999997,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "lightgbm",
+      "seconds": 0.6657271449999769,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "xgboost",
+      "seconds": 0.8831149190000076,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "catboost",
+      "seconds": 0.8779953990000138,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "sarima",
+      "seconds": 13.253034350999997,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "state-space",
+      "seconds": 6.236031972999996,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "holt",
+      "seconds": 0.3010953810000103,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "ou-sde",
+      "seconds": 0.4537757620000207,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "nonlinear-ode",
+      "seconds": 0.5642938519999916,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "nonlinear-sde",
+      "seconds": 0.7392240270000059,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "mlp",
+      "seconds": 11.452693388,
+      "warnings": [],
+      "architecture": {
+        "name": "MLP",
+        "hidden": [
+          64,
+          32
+        ],
+        "input": "tabular + flattened 28-day sequence"
+      },
+      "torchVersion": "2.14.0+cpu",
+      "device": "cpu",
+      "threads": 2,
+      "trainRows": 2166,
+      "evalRows": 693,
+      "targetScaleFromTrain": 18.627885503231763,
+      "quantiles": [
+        0.1,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "seedRuns": [
+        {
+          "seed": 20260914,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.14926857870701607,
+          "finalEpochTrainPinball": 0.046767605188288076,
+          "parameters": 8292,
+          "parameterChangeL2": 9.521833036054517,
+          "maximumGradientL2": 0.6981425285339355
+        },
+        {
+          "seed": 20260915,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.155306654087064,
+          "finalEpochTrainPinball": 0.049518632226978755,
+          "parameters": 8292,
+          "parameterChangeL2": 9.507814199295456,
+          "maximumGradientL2": 0.579050600528717
+        }
+      ],
+      "optimizer": "AdamW",
+      "learningRate": 0.002,
+      "weightDecay": 0.0001,
+      "scheduler": "cosine to 0.0002",
+      "batchSize": 64,
+      "earlyStopping": false,
+      "durationSeconds": 10.225
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "lstm",
+      "seconds": 19.20594124599998,
+      "warnings": [],
+      "architecture": {
+        "name": "LSTM",
+        "hidden": 24,
+        "layers": 1,
+        "head_hidden": 32
+      },
+      "torchVersion": "2.14.0+cpu",
+      "device": "cpu",
+      "threads": 2,
+      "trainRows": 2166,
+      "evalRows": 693,
+      "targetScaleFromTrain": 18.627885503231763,
+      "quantiles": [
+        0.1,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "seedRuns": [
+        {
+          "seed": 20260914,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.1471993214866131,
+          "finalEpochTrainPinball": 0.06947963773543815,
+          "parameters": 4836,
+          "parameterChangeL2": 10.23971227520506,
+          "maximumGradientL2": 0.3717837631702423
+        },
+        {
+          "seed": 20260915,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.14922831290756677,
+          "finalEpochTrainPinball": 0.06953430678334263,
+          "parameters": 4836,
+          "parameterChangeL2": 11.972427511441587,
+          "maximumGradientL2": 0.39391428232192993
+        }
+      ],
+      "optimizer": "AdamW",
+      "learningRate": 0.002,
+      "weightDecay": 0.0001,
+      "scheduler": "cosine to 0.0002",
+      "batchSize": 64,
+      "earlyStopping": false,
+      "durationSeconds": 19.202
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "gru",
+      "seconds": 46.575251984999994,
+      "warnings": [],
+      "architecture": {
+        "name": "GRU",
+        "hidden": 24,
+        "layers": 1,
+        "head_hidden": 32
+      },
+      "torchVersion": "2.14.0+cpu",
+      "device": "cpu",
+      "threads": 2,
+      "trainRows": 2166,
+      "evalRows": 693,
+      "targetScaleFromTrain": 18.627885503231763,
+      "quantiles": [
+        0.1,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "seedRuns": [
+        {
+          "seed": 20260914,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.15049242429841148,
+          "finalEpochTrainPinball": 0.06986272477803689,
+          "parameters": 4164,
+          "parameterChangeL2": 11.574505203280125,
+          "maximumGradientL2": 0.4293813705444336
+        },
+        {
+          "seed": 20260915,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.15269274656021914,
+          "finalEpochTrainPinball": 0.06961218976619502,
+          "parameters": 4164,
+          "parameterChangeL2": 11.830739146900214,
+          "maximumGradientL2": 0.4239400625228882
+        }
+      ],
+      "optimizer": "AdamW",
+      "learningRate": 0.002,
+      "weightDecay": 0.0001,
+      "scheduler": "cosine to 0.0002",
+      "batchSize": 64,
+      "earlyStopping": false,
+      "durationSeconds": 46.572
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "tcn",
+      "seconds": 30.077439768000033,
+      "warnings": [],
+      "architecture": {
+        "name": "TCN",
+        "channels": 16,
+        "kernel": 3,
+        "dilations": [
+          1,
+          2,
+          4,
+          8
+        ]
+      },
+      "torchVersion": "2.14.0+cpu",
+      "device": "cpu",
+      "threads": 2,
+      "trainRows": 2166,
+      "evalRows": 693,
+      "targetScaleFromTrain": 18.627885503231763,
+      "quantiles": [
+        0.1,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "seedRuns": [
+        {
+          "seed": 20260914,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.14729500843327242,
+          "finalEpochTrainPinball": 0.047708383653852965,
+          "parameters": 4404,
+          "parameterChangeL2": 9.096679909870433,
+          "maximumGradientL2": 0.7098579406738281
+        },
+        {
+          "seed": 20260915,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.14740458646804672,
+          "finalEpochTrainPinball": 0.047071425393842924,
+          "parameters": 4404,
+          "parameterChangeL2": 9.49752071224599,
+          "maximumGradientL2": 0.8502274751663208
+        }
+      ],
+      "optimizer": "AdamW",
+      "learningRate": 0.002,
+      "weightDecay": 0.0001,
+      "scheduler": "cosine to 0.0002",
+      "batchSize": 64,
+      "earlyStopping": false,
+      "durationSeconds": 30.074
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "transformer",
+      "seconds": 46.36247268300002,
+      "warnings": [],
+      "architecture": {
+        "name": "Transformer",
+        "d_model": 16,
+        "heads": 2,
+        "layers": 1,
+        "feedforward": 32
+      },
+      "torchVersion": "2.14.0+cpu",
+      "device": "cpu",
+      "threads": 2,
+      "trainRows": 2166,
+      "evalRows": 693,
+      "targetScaleFromTrain": 18.627885503231763,
+      "quantiles": [
+        0.1,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "seedRuns": [
+        {
+          "seed": 20260914,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.14809382096662196,
+          "finalEpochTrainPinball": 0.06757468305397452,
+          "parameters": 4164,
+          "parameterChangeL2": 7.8550396824271465,
+          "maximumGradientL2": 0.4953911006450653
+        },
+        {
+          "seed": 20260915,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.14833178934628283,
+          "finalEpochTrainPinball": 0.06943241726273425,
+          "parameters": 4164,
+          "parameterChangeL2": 8.29644159418758,
+          "maximumGradientL2": 0.5111989378929138
+        }
+      ],
+      "optimizer": "AdamW",
+      "learningRate": 0.002,
+      "weightDecay": 0.0001,
+      "scheduler": "cosine to 0.0002",
+      "batchSize": 64,
+      "earlyStopping": false,
+      "durationSeconds": 46.359
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "neural-ode",
+      "seconds": 21.598658946,
+      "warnings": [],
+      "architecture": {
+        "name": "Neural ODE",
+        "latent": 24,
+        "drift_hidden": 32,
+        "solver": "explicit Euler",
+        "steps": 8,
+        "integration_time": [
+          0,
+          1
+        ]
+      },
+      "torchVersion": "2.14.0+cpu",
+      "device": "cpu",
+      "threads": 2,
+      "trainRows": 2166,
+      "evalRows": 693,
+      "targetScaleFromTrain": 18.627885503231763,
+      "quantiles": [
+        0.1,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "seedRuns": [
+        {
+          "seed": 20260914,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.14427556349987908,
+          "finalEpochTrainPinball": 0.0540537418881887,
+          "parameters": 5140,
+          "parameterChangeL2": 7.956127512673324,
+          "maximumGradientL2": 0.5392957329750061
+        },
+        {
+          "seed": 20260915,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.14818966407965206,
+          "finalEpochTrainPinball": 0.05599429377200751,
+          "parameters": 5140,
+          "parameterChangeL2": 7.326398299106598,
+          "maximumGradientL2": 0.6253567934036255
+        }
+      ],
+      "optimizer": "AdamW",
+      "learningRate": 0.002,
+      "weightDecay": 0.0001,
+      "scheduler": "cosine to 0.0002",
+      "batchSize": 64,
+      "earlyStopping": false,
+      "durationSeconds": 21.596
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "scaled-catboost",
+      "seconds": 3.1920257269999865,
+      "warnings": []
+    },
+    {
+      "splitId": "split-1",
+      "modelId": "custom-final",
+      "weights": [
+        0.34672344571941527,
+        0.044378182039429115,
+        0.27305265825290437,
+        0.33584571398825147,
+        2.5610059102441164e-19
+      ],
+      "objective": 0.1558033994004715,
+      "weightRows": 168,
+      "residualRows": 155,
+      "weightCutoff": "2023-06-02",
+      "residualCutoff": "2023-06-30",
+      "finalEnsembleWeight": 0.7324572088988475,
+      "weightOptimizationSuccess": true
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "last-day",
+      "seconds": 0.08422311300000729,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "last-week",
+      "seconds": 0.0835945279999919,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "recent-7",
+      "seconds": 0.3118657260000077,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "weekday-8",
+      "seconds": 0.36745737299997927,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "ridge",
+      "seconds": 0.0037578250000365188,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "elastic-net",
+      "seconds": 0.009932689000038408,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "huber",
+      "seconds": 0.2018400149999593,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "linear-quantile-0",
+      "seconds": 3.588471400000003,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "linear-quantile-1",
+      "seconds": 0.8340155539999614,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "spline-ridge",
+      "seconds": 0.017949185000020407,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "poisson",
+      "seconds": 0.2912163860000305,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "negative-binomial",
+      "seconds": 0.32048104699998703,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "svr",
+      "seconds": 0.39108008900001323,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "knn",
+      "seconds": 0.013720540000008441,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "random-forest",
+      "seconds": 2.107263018000026,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "extra-trees",
+      "seconds": 1.096143996999956,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "histogram-small",
+      "seconds": 1.2278348780000101,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "histogram-medium",
+      "seconds": 2.790844913000001,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "histogram-large",
+      "seconds": 6.302457471000025,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "lightgbm",
+      "seconds": 0.7079617320000011,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "xgboost",
+      "seconds": 0.8826450589999695,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "catboost",
+      "seconds": 0.8028899820000106,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "sarima",
+      "seconds": 13.100673087999951,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "state-space",
+      "seconds": 6.588498351999988,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "holt",
+      "seconds": 0.3095573450000302,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "ou-sde",
+      "seconds": 0.45481328600004645,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "nonlinear-ode",
+      "seconds": 0.5648764279999909,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "nonlinear-sde",
+      "seconds": 0.7393253820000041,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "mlp",
+      "seconds": 10.499843294000016,
+      "warnings": [],
+      "architecture": {
+        "name": "MLP",
+        "hidden": [
+          64,
+          32
+        ],
+        "input": "tabular + flattened 28-day sequence"
+      },
+      "torchVersion": "2.14.0+cpu",
+      "device": "cpu",
+      "threads": 2,
+      "trainRows": 2525,
+      "evalRows": 700,
+      "targetScaleFromTrain": 18.86970297029703,
+      "quantiles": [
+        0.1,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "seedRuns": [
+        {
+          "seed": 20260914,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.1436848299957738,
+          "finalEpochTrainPinball": 0.0511616073814359,
+          "parameters": 8292,
+          "parameterChangeL2": 10.272228334072476,
+          "maximumGradientL2": 0.5318125486373901
+        },
+        {
+          "seed": 20260915,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.1465741517874274,
+          "finalEpochTrainPinball": 0.05216775508505283,
+          "parameters": 8292,
+          "parameterChangeL2": 10.015312027672021,
+          "maximumGradientL2": 0.6993137001991272
+        }
+      ],
+      "optimizer": "AdamW",
+      "learningRate": 0.002,
+      "weightDecay": 0.0001,
+      "scheduler": "cosine to 0.0002",
+      "batchSize": 64,
+      "earlyStopping": false,
+      "durationSeconds": 10.498
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "lstm",
+      "seconds": 22.44919999800004,
+      "warnings": [],
+      "architecture": {
+        "name": "LSTM",
+        "hidden": 24,
+        "layers": 1,
+        "head_hidden": 32
+      },
+      "torchVersion": "2.14.0+cpu",
+      "device": "cpu",
+      "threads": 2,
+      "trainRows": 2525,
+      "evalRows": 700,
+      "targetScaleFromTrain": 18.86970297029703,
+      "quantiles": [
+        0.1,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "seedRuns": [
+        {
+          "seed": 20260914,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.14106188146784754,
+          "finalEpochTrainPinball": 0.07133862905573136,
+          "parameters": 4836,
+          "parameterChangeL2": 11.679610150616938,
+          "maximumGradientL2": 0.4580792188644409
+        },
+        {
+          "seed": 20260915,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.13988801335049147,
+          "finalEpochTrainPinball": 0.07064910735234176,
+          "parameters": 4836,
+          "parameterChangeL2": 12.757353538607685,
+          "maximumGradientL2": 0.5255274772644043
+        }
+      ],
+      "optimizer": "AdamW",
+      "learningRate": 0.002,
+      "weightDecay": 0.0001,
+      "scheduler": "cosine to 0.0002",
+      "batchSize": 64,
+      "earlyStopping": false,
+      "durationSeconds": 22.446
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "gru",
+      "seconds": 54.212957218999975,
+      "warnings": [],
+      "architecture": {
+        "name": "GRU",
+        "hidden": 24,
+        "layers": 1,
+        "head_hidden": 32
+      },
+      "torchVersion": "2.14.0+cpu",
+      "device": "cpu",
+      "threads": 2,
+      "trainRows": 2525,
+      "evalRows": 700,
+      "targetScaleFromTrain": 18.86970297029703,
+      "quantiles": [
+        0.1,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "seedRuns": [
+        {
+          "seed": 20260914,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.14297489809517813,
+          "finalEpochTrainPinball": 0.07201849318081789,
+          "parameters": 4164,
+          "parameterChangeL2": 12.411910997020238,
+          "maximumGradientL2": 0.4797619879245758
+        },
+        {
+          "seed": 20260915,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.1414645237261706,
+          "finalEpochTrainPinball": 0.07060534205472115,
+          "parameters": 4164,
+          "parameterChangeL2": 12.686581353280074,
+          "maximumGradientL2": 0.46561428904533386
+        }
+      ],
+      "optimizer": "AdamW",
+      "learningRate": 0.002,
+      "weightDecay": 0.0001,
+      "scheduler": "cosine to 0.0002",
+      "batchSize": 64,
+      "earlyStopping": false,
+      "durationSeconds": 54.21
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "tcn",
+      "seconds": 34.96067962500001,
+      "warnings": [],
+      "architecture": {
+        "name": "TCN",
+        "channels": 16,
+        "kernel": 3,
+        "dilations": [
+          1,
+          2,
+          4,
+          8
+        ]
+      },
+      "torchVersion": "2.14.0+cpu",
+      "device": "cpu",
+      "threads": 2,
+      "trainRows": 2525,
+      "evalRows": 700,
+      "targetScaleFromTrain": 18.86970297029703,
+      "quantiles": [
+        0.1,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "seedRuns": [
+        {
+          "seed": 20260914,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.13999499154267925,
+          "finalEpochTrainPinball": 0.048291426840985176,
+          "parameters": 4404,
+          "parameterChangeL2": 9.117229393950234,
+          "maximumGradientL2": 0.6599981784820557
+        },
+        {
+          "seed": 20260915,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.13793625994188952,
+          "finalEpochTrainPinball": 0.05271192171491019,
+          "parameters": 4404,
+          "parameterChangeL2": 9.363053883842419,
+          "maximumGradientL2": 0.638522207736969
+        }
+      ],
+      "optimizer": "AdamW",
+      "learningRate": 0.002,
+      "weightDecay": 0.0001,
+      "scheduler": "cosine to 0.0002",
+      "batchSize": 64,
+      "earlyStopping": false,
+      "durationSeconds": 34.957
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "transformer",
+      "seconds": 54.660949442,
+      "warnings": [],
+      "architecture": {
+        "name": "Transformer",
+        "d_model": 16,
+        "heads": 2,
+        "layers": 1,
+        "feedforward": 32
+      },
+      "torchVersion": "2.14.0+cpu",
+      "device": "cpu",
+      "threads": 2,
+      "trainRows": 2525,
+      "evalRows": 700,
+      "targetScaleFromTrain": 18.86970297029703,
+      "quantiles": [
+        0.1,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "seedRuns": [
+        {
+          "seed": 20260914,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.14149330885398506,
+          "finalEpochTrainPinball": 0.07124557342859777,
+          "parameters": 4164,
+          "parameterChangeL2": 8.318424273414863,
+          "maximumGradientL2": 0.5189913511276245
+        },
+        {
+          "seed": 20260915,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.13841536580631048,
+          "finalEpochTrainPinball": 0.07101369792872136,
+          "parameters": 4164,
+          "parameterChangeL2": 8.628064014531189,
+          "maximumGradientL2": 0.5392081141471863
+        }
+      ],
+      "optimizer": "AdamW",
+      "learningRate": 0.002,
+      "weightDecay": 0.0001,
+      "scheduler": "cosine to 0.0002",
+      "batchSize": 64,
+      "earlyStopping": false,
+      "durationSeconds": 54.658
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "neural-ode",
+      "seconds": 24.869169951000003,
+      "warnings": [],
+      "architecture": {
+        "name": "Neural ODE",
+        "latent": 24,
+        "drift_hidden": 32,
+        "solver": "explicit Euler",
+        "steps": 8,
+        "integration_time": [
+          0,
+          1
+        ]
+      },
+      "torchVersion": "2.14.0+cpu",
+      "device": "cpu",
+      "threads": 2,
+      "trainRows": 2525,
+      "evalRows": 700,
+      "targetScaleFromTrain": 18.86970297029703,
+      "quantiles": [
+        0.1,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "seedRuns": [
+        {
+          "seed": 20260914,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.13818862894383988,
+          "finalEpochTrainPinball": 0.058163644990118425,
+          "parameters": 5140,
+          "parameterChangeL2": 8.113233897429586,
+          "maximumGradientL2": 0.635491669178009
+        },
+        {
+          "seed": 20260915,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.1384868417547481,
+          "finalEpochTrainPinball": 0.05862209530455051,
+          "parameters": 5140,
+          "parameterChangeL2": 7.848570455989535,
+          "maximumGradientL2": 0.5879657864570618
+        }
+      ],
+      "optimizer": "AdamW",
+      "learningRate": 0.002,
+      "weightDecay": 0.0001,
+      "scheduler": "cosine to 0.0002",
+      "batchSize": 64,
+      "earlyStopping": false,
+      "durationSeconds": 24.866
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "scaled-catboost",
+      "seconds": 3.259388936999926,
+      "warnings": []
+    },
+    {
+      "splitId": "split-2",
+      "modelId": "custom-final",
+      "weights": [
+        0.17259812951224632,
+        0.0,
+        0.8274018704877538,
+        0.0,
+        3.3794763850286e-17
+      ],
+      "objective": 0.15421990162933605,
+      "weightRows": 166,
+      "residualRows": 168,
+      "weightCutoff": "2023-08-03",
+      "residualCutoff": "2023-08-31",
+      "finalEnsembleWeight": 0.7324572088988475,
+      "weightOptimizationSuccess": true
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "last-day",
+      "seconds": 0.07129553599997962,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "last-week",
+      "seconds": 0.0703020790000437,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "recent-7",
+      "seconds": 0.2571665099999336,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "weekday-8",
+      "seconds": 0.3053353349999952,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "ridge",
+      "seconds": 0.003939377999927274,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "elastic-net",
+      "seconds": 0.012615462999974625,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "huber",
+      "seconds": 0.1773947720000706,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "linear-quantile-0",
+      "seconds": 4.447023498000021,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "linear-quantile-1",
+      "seconds": 1.0316827689999855,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "spline-ridge",
+      "seconds": 0.018239908999930776,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "poisson",
+      "seconds": 0.2428713650000418,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "negative-binomial",
+      "seconds": 0.2689796480000268,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "svr",
+      "seconds": 0.45063341100001253,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "knn",
+      "seconds": 0.01291143900004954,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "random-forest",
+      "seconds": 2.4160005960000035,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "extra-trees",
+      "seconds": 1.1728647059999275,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "histogram-small",
+      "seconds": 1.2711503499999708,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "histogram-medium",
+      "seconds": 2.85944586100004,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "histogram-large",
+      "seconds": 6.371640775999936,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "lightgbm",
+      "seconds": 0.7146416980000367,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "xgboost",
+      "seconds": 0.9347853279999754,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "catboost",
+      "seconds": 0.840293097999961,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "sarima",
+      "seconds": 13.449261295000042,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "state-space",
+      "seconds": 6.088728655000068,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "holt",
+      "seconds": 0.3015869150000299,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "ou-sde",
+      "seconds": 0.38629597900001045,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "nonlinear-ode",
+      "seconds": 0.476393726000083,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "nonlinear-sde",
+      "seconds": 0.6326766649999627,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "mlp",
+      "seconds": 12.351496807999979,
+      "warnings": [],
+      "architecture": {
+        "name": "MLP",
+        "hidden": [
+          64,
+          32
+        ],
+        "input": "tabular + flattened 28-day sequence"
+      },
+      "torchVersion": "2.14.0+cpu",
+      "device": "cpu",
+      "threads": 2,
+      "trainRows": 2889,
+      "evalRows": 574,
+      "targetScaleFromTrain": 21.02630668051229,
+      "quantiles": [
+        0.1,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "seedRuns": [
+        {
+          "seed": 20260914,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.1320473953705009,
+          "finalEpochTrainPinball": 0.05300671106295298,
+          "parameters": 8292,
+          "parameterChangeL2": 10.330799341584477,
+          "maximumGradientL2": 1.6060125827789307
+        },
+        {
+          "seed": 20260915,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.1415709214057424,
+          "finalEpochTrainPinball": 0.05475029592521878,
+          "parameters": 8292,
+          "parameterChangeL2": 10.110444561945016,
+          "maximumGradientL2": 1.0934302806854248
+        }
+      ],
+      "optimizer": "AdamW",
+      "learningRate": 0.002,
+      "weightDecay": 0.0001,
+      "scheduler": "cosine to 0.0002",
+      "batchSize": 64,
+      "earlyStopping": false,
+      "durationSeconds": 12.349
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "lstm",
+      "seconds": 26.069813056000044,
+      "warnings": [],
+      "architecture": {
+        "name": "LSTM",
+        "hidden": 24,
+        "layers": 1,
+        "head_hidden": 32
+      },
+      "torchVersion": "2.14.0+cpu",
+      "device": "cpu",
+      "threads": 2,
+      "trainRows": 2889,
+      "evalRows": 574,
+      "targetScaleFromTrain": 21.02630668051229,
+      "quantiles": [
+        0.1,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "seedRuns": [
+        {
+          "seed": 20260914,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.1330634961726757,
+          "finalEpochTrainPinball": 0.07274366557525903,
+          "parameters": 4836,
+          "parameterChangeL2": 11.611446584301003,
+          "maximumGradientL2": 0.908302903175354
+        },
+        {
+          "seed": 20260915,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.13611759101490364,
+          "finalEpochTrainPinball": 0.07253832616848119,
+          "parameters": 4836,
+          "parameterChangeL2": 12.315958293042224,
+          "maximumGradientL2": 0.9076828360557556
+        }
+      ],
+      "optimizer": "AdamW",
+      "learningRate": 0.002,
+      "weightDecay": 0.0001,
+      "scheduler": "cosine to 0.0002",
+      "batchSize": 64,
+      "earlyStopping": false,
+      "durationSeconds": 26.067
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "gru",
+      "seconds": 63.09350851699992,
+      "warnings": [],
+      "architecture": {
+        "name": "GRU",
+        "hidden": 24,
+        "layers": 1,
+        "head_hidden": 32
+      },
+      "torchVersion": "2.14.0+cpu",
+      "device": "cpu",
+      "threads": 2,
+      "trainRows": 2889,
+      "evalRows": 574,
+      "targetScaleFromTrain": 21.02630668051229,
+      "quantiles": [
+        0.1,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "seedRuns": [
+        {
+          "seed": 20260914,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.13526434060631015,
+          "finalEpochTrainPinball": 0.07164346345230632,
+          "parameters": 4164,
+          "parameterChangeL2": 13.133125296078843,
+          "maximumGradientL2": 0.8611057996749878
+        },
+        {
+          "seed": 20260915,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.13750813599945394,
+          "finalEpochTrainPinball": 0.07122441833563518,
+          "parameters": 4164,
+          "parameterChangeL2": 13.473581850082407,
+          "maximumGradientL2": 0.7816265821456909
+        }
+      ],
+      "optimizer": "AdamW",
+      "learningRate": 0.002,
+      "weightDecay": 0.0001,
+      "scheduler": "cosine to 0.0002",
+      "batchSize": 64,
+      "earlyStopping": false,
+      "durationSeconds": 63.09
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "tcn",
+      "seconds": 40.34243288599998,
+      "warnings": [],
+      "architecture": {
+        "name": "TCN",
+        "channels": 16,
+        "kernel": 3,
+        "dilations": [
+          1,
+          2,
+          4,
+          8
+        ]
+      },
+      "torchVersion": "2.14.0+cpu",
+      "device": "cpu",
+      "threads": 2,
+      "trainRows": 2889,
+      "evalRows": 574,
+      "targetScaleFromTrain": 21.02630668051229,
+      "quantiles": [
+        0.1,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "seedRuns": [
+        {
+          "seed": 20260914,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.12976162919343323,
+          "finalEpochTrainPinball": 0.04879617898258506,
+          "parameters": 4404,
+          "parameterChangeL2": 9.521356126459533,
+          "maximumGradientL2": 1.1784056425094604
+        },
+        {
+          "seed": 20260915,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.13374284245834586,
+          "finalEpochTrainPinball": 0.051682226865318,
+          "parameters": 4404,
+          "parameterChangeL2": 9.584306913226674,
+          "maximumGradientL2": 1.0229523181915283
+        }
+      ],
+      "optimizer": "AdamW",
+      "learningRate": 0.002,
+      "weightDecay": 0.0001,
+      "scheduler": "cosine to 0.0002",
+      "batchSize": 64,
+      "earlyStopping": false,
+      "durationSeconds": 40.339
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "transformer",
+      "seconds": 63.07088752800007,
+      "warnings": [],
+      "architecture": {
+        "name": "Transformer",
+        "d_model": 16,
+        "heads": 2,
+        "layers": 1,
+        "feedforward": 32
+      },
+      "torchVersion": "2.14.0+cpu",
+      "device": "cpu",
+      "threads": 2,
+      "trainRows": 2889,
+      "evalRows": 574,
+      "targetScaleFromTrain": 21.02630668051229,
+      "quantiles": [
+        0.1,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "seedRuns": [
+        {
+          "seed": 20260914,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.1318715159591402,
+          "finalEpochTrainPinball": 0.072142847490975,
+          "parameters": 4164,
+          "parameterChangeL2": 8.234724917176772,
+          "maximumGradientL2": 0.7862452268600464
+        },
+        {
+          "seed": 20260915,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.1335119022222158,
+          "finalEpochTrainPinball": 0.07016802387806569,
+          "parameters": 4164,
+          "parameterChangeL2": 8.612858129819086,
+          "maximumGradientL2": 0.9709969758987427
+        }
+      ],
+      "optimizer": "AdamW",
+      "learningRate": 0.002,
+      "weightDecay": 0.0001,
+      "scheduler": "cosine to 0.0002",
+      "batchSize": 64,
+      "earlyStopping": false,
+      "durationSeconds": 63.068
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "neural-ode",
+      "seconds": 28.47001128499994,
+      "warnings": [],
+      "architecture": {
+        "name": "Neural ODE",
+        "latent": 24,
+        "drift_hidden": 32,
+        "solver": "explicit Euler",
+        "steps": 8,
+        "integration_time": [
+          0,
+          1
+        ]
+      },
+      "torchVersion": "2.14.0+cpu",
+      "device": "cpu",
+      "threads": 2,
+      "trainRows": 2889,
+      "evalRows": 574,
+      "targetScaleFromTrain": 21.02630668051229,
+      "quantiles": [
+        0.1,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "seedRuns": [
+        {
+          "seed": 20260914,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.12985861252937897,
+          "finalEpochTrainPinball": 0.06207287091827591,
+          "parameters": 5140,
+          "parameterChangeL2": 8.45634201359927,
+          "maximumGradientL2": 0.9630507230758667
+        },
+        {
+          "seed": 20260915,
+          "epochs": 80,
+          "initialEpochTrainPinball": 0.1343960624204948,
+          "finalEpochTrainPinball": 0.059893959031339414,
+          "parameters": 5140,
+          "parameterChangeL2": 8.389967997786568,
+          "maximumGradientL2": 1.0378215312957764
+        }
+      ],
+      "optimizer": "AdamW",
+      "learningRate": 0.002,
+      "weightDecay": 0.0001,
+      "scheduler": "cosine to 0.0002",
+      "batchSize": 64,
+      "earlyStopping": false,
+      "durationSeconds": 28.467
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "scaled-catboost",
+      "seconds": 3.344390758999907,
+      "warnings": []
+    },
+    {
+      "splitId": "split-3",
+      "modelId": "custom-final",
+      "weights": [
+        0.31036021384217033,
+        0.341378022211425,
+        0.19549076426210724,
+        0.15277099968429744,
+        1.563557592709242e-19
+      ],
+      "objective": 0.11832993283866657,
+      "weightRows": 168,
+      "residualRows": 168,
+      "weightCutoff": "2023-10-03",
+      "residualCutoff": "2023-10-31",
+      "finalEnsembleWeight": 0.7324572088988475,
+      "weightOptimizationSuccess": true
+    }
+  ],
+  "disclosure": "Only selected public product/date sales and derived predictions are exported; no user store data is included."
+}

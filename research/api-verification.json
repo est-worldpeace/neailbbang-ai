@@ -1,0 +1,13 @@
+{
+  "apiHandlers": "passed",
+  "sqliteMigration": "passed",
+  "persistentReopen": "passed",
+  "dailyNextDayComparison": "passed",
+  "immutableForecasts": "passed",
+  "importPreviewAndValidation": "passed",
+  "unknownStockoutPreserved": "passed",
+  "demoIsolation": "passed",
+  "invalidQuantitiesAndDates": "passed",
+  "crossOriginWritesRejected": true,
+  "backend": "actual API handlers against SQLite D1 adapter; browser and hosted D1 not exercised"
+}

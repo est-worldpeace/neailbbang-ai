@@ -1,0 +1,58 @@
+name: Compare Chronos-Bolt Small
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      OMP_NUM_THREADS: '2'
+      OPENBLAS_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      PYTHONHASHSEED: '20260915'
+      PYTHONUNBUFFERED: '1'
+      HF_HUB_DISABLE_XET: '1'
+      HF_HUB_DISABLE_TELEMETRY: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - name: Display the protocol fixed before inference
+        run: cat research/rebuild/chronos-protocol.json
+      - name: Install pinned CPU inference libraries
+        run: |
+          python -m pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip download chronos-forecasting==2.3.2 --no-deps --dest work/chronos-wheels
+          python - <<'PY'
+          import hashlib, json, pathlib
+          p = json.loads(pathlib.Path('research/rebuild/chronos-protocol.json').read_text())
+          wheel = next(pathlib.Path('work/chronos-wheels').glob('*.whl'))
+          assert hashlib.sha256(wheel.read_bytes()).hexdigest() == p['chronosWheelSha256']
+          print('Official Chronos wheel SHA-256 verified')
+          PY
+          python -m pip install numpy==2.3.5 pandas==3.0.1 transformers==4.57.6 accelerate==1.12.0 einops==0.8.1 huggingface-hub==0.36.0 safetensors==0.7.0 tokenizers==0.22.2 work/chronos-wheels/*.whl
+          python -m pip freeze > work/chronos-resolved-requirements.txt
+      - name: Restore the exact original data and observation keys
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 34814876448 --repo "$GITHUB_REPOSITORY" --name bakery-benchmark-34814876448 --dir work/benchmark-34814876448
+      - name: Run preregistered inference and verification
+        run: python research/rebuild/chronos_benchmark.py --source work/benchmark-34814876448
+      - name: Preserve comparison and implementation evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: bakery-chronos-${{ github.run_id }}
+          retention-days: 90
+          if-no-files-found: error
+          path: |
+            public/research/chronos/**
+            research/rebuild/chronos-protocol.json
+            work/chronos-resolved-requirements.txt

@@ -1,0 +1,27 @@
+.git
+.vercel
+.env*
+.openai
+.sites-runtime
+.wrangler
+.vinext
+.next
+node_modules
+dist
+work
+outputs
+# Exclude local training code, while shipping public/research results.
+/research/
+db
+drizzle
+build
+examples
+scripts
+vite.config.ts
+drizzle.config.ts
+cloudflare-env.d.ts
+pnpm-lock.yaml
+pnpm-workspace.yaml
+data
+lib/store.ts
+tsconfig.tsbuildinfo

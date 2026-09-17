@@ -1,0 +1,8 @@
+{
+  "pythonFixtures": 20,
+  "maxPredictionDifference": 1.4210854715202004e-14,
+  "maxFeatureDifference": 5.950795411990839e-14,
+  "maxShapeDifference": 1.0547118733938987e-15,
+  "maxWeightObjectiveGap": 0,
+  "inventoryChecks": "passed"
+}

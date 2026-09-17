@@ -1,0 +1,65 @@
+{
+  "status": "passed",
+  "series": 77,
+  "observationsPerSeries": 974,
+  "predictionRows": 74998,
+  "frozenModelsPreserved": 35,
+  "dailyCalibratedCandidates": 34,
+  "customVariants": 8,
+  "sameObservationKeysForAllSeries": true,
+  "duplicatePredictionKeys": 0,
+  "previouslyComputedSeriesUnchanged": 77,
+  "allFinite": true,
+  "everyMetricComputedFromExportedCsv": true,
+  "csvMetricsReconciledWithMemory": true,
+  "original35MetricsPreserved": true,
+  "actualDateCutoffsAssertedForEveryUpdate": true,
+  "sameDayAndFutureCalibrationTargetMutationInvariant": true,
+  "mutationScope": "Recalibration only: raw base predictions, lag features and sequences stay fixed; original archived feature-causality verification remains the source for base inputs.",
+  "baseModelsRetrained": false,
+  "checks": [
+    {
+      "splitId": "split-1",
+      "n": 370,
+      "dateCutoffAssertions": 20054,
+      "matchedFactorialFirstDatePredictionsExactlyEqual": true,
+      "mutationTargetDates": [
+        "2023-07-01",
+        "2023-07-03",
+        "2023-08-01",
+        "2023-08-31"
+      ],
+      "mutationVariantCases": 168,
+      "sameDayAndFutureTargetMutationInvariant": true
+    },
+    {
+      "splitId": "split-2",
+      "n": 366,
+      "dateCutoffAssertions": 19837,
+      "matchedFactorialFirstDatePredictionsExactlyEqual": true,
+      "mutationTargetDates": [
+        "2023-09-01",
+        "2023-09-03",
+        "2023-10-01",
+        "2023-10-31"
+      ],
+      "mutationVariantCases": 168,
+      "sameDayAndFutureTargetMutationInvariant": true
+    },
+    {
+      "splitId": "split-3",
+      "n": 238,
+      "dateCutoffAssertions": 12901,
+      "matchedFactorialFirstDatePredictionsExactlyEqual": true,
+      "mutationTargetDates": [
+        "2023-11-01",
+        "2023-11-03",
+        "2023-11-22",
+        "2023-12-11"
+      ],
+      "mutationVariantCases": 168,
+      "sameDayAndFutureTargetMutationInvariant": true
+    }
+  ],
+  "originalVerificationSha256": "d8b9ff427b3970f7cebf22901ead50b9d7602f1f06f7b1d0ff8ee5f733eb30c4"
+}

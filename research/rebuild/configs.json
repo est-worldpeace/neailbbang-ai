@@ -1,0 +1,282 @@
+[
+  {
+    "id": "last-day",
+    "name": "전날 판매",
+    "family": "단순 기준",
+    "role": "candidate",
+    "parameters": "lag1, 누락 시 과거 평균",
+    "description": "직전 날짜의 판매량을 기준으로 예측"
+  },
+  {
+    "id": "last-week",
+    "name": "전주 같은 요일",
+    "family": "단순 기준",
+    "role": "candidate",
+    "parameters": "lag7, 누락 시 과거 평균",
+    "description": "지난주 같은 요일 판매량을 기준으로 예측"
+  },
+  {
+    "id": "recent-7",
+    "name": "최근 7일 판매분포",
+    "family": "단순 기준",
+    "role": "candidate",
+    "parameters": "calendar window=7, empirical quantiles",
+    "description": "최근 일주일의 관측 판매분포"
+  },
+  {
+    "id": "weekday-8",
+    "name": "최근 8주 같은 요일",
+    "family": "단순 기준",
+    "role": "candidate",
+    "parameters": "8 weekly lags, empirical quantiles",
+    "description": "최대 8주 같은 요일의 판매분포"
+  },
+  {
+    "id": "ridge",
+    "name": "Ridge 회귀",
+    "family": "회귀·확률분포",
+    "role": "candidate",
+    "parameters": "alpha=10",
+    "description": "L2 정규화를 적용한 선형 회귀"
+  },
+  {
+    "id": "elastic-net",
+    "name": "Elastic Net",
+    "family": "회귀·확률분포",
+    "role": "candidate",
+    "parameters": "alpha=0.1,l1_ratio=0.25,max_iter=5000",
+    "description": "L1·L2 정규화 선형 회귀"
+  },
+  {
+    "id": "huber",
+    "name": "Huber 회귀",
+    "family": "회귀·확률분포",
+    "role": "candidate",
+    "parameters": "epsilon=1.35,alpha=0.0001,max_iter=500",
+    "description": "큰 오차의 영향을 완화하는 회귀"
+  },
+  {
+    "id": "linear-quantile-0",
+    "name": "선형 분위수 · 비정규화",
+    "family": "회귀·확률분포",
+    "role": "candidate",
+    "parameters": "alpha=0,quantiles=0.1/0.5/0.75/0.9,solver=highs",
+    "description": "선형식으로 네 분위수를 직접 추정"
+  },
+  {
+    "id": "linear-quantile-1",
+    "name": "선형 분위수 · L1 정규화",
+    "family": "회귀·확률분포",
+    "role": "candidate",
+    "parameters": "alpha=1,quantiles=0.1/0.5/0.75/0.9,solver=highs",
+    "description": "L1 정규화 선형 분위수 회귀"
+  },
+  {
+    "id": "spline-ridge",
+    "name": "스플라인 Ridge",
+    "family": "회귀·확률분포",
+    "role": "candidate",
+    "parameters": "4 knots,degree=2,alpha=10,linear extrapolation",
+    "description": "곡선 변환을 적용한 Ridge 회귀"
+  },
+  {
+    "id": "poisson",
+    "name": "Poisson 회귀",
+    "family": "회귀·확률분포",
+    "role": "candidate",
+    "parameters": "alpha=1,max_iter=500",
+    "description": "로그 연결함수의 Poisson 회귀"
+  },
+  {
+    "id": "negative-binomial",
+    "name": "음이항 회귀",
+    "family": "회귀·확률분포",
+    "role": "candidate",
+    "parameters": "GLM negative-binomial,dispersion from training,alpha ridge=0.01",
+    "description": "학습 잔차 과산포를 반영하는 음이항 회귀"
+  },
+  {
+    "id": "svr",
+    "name": "SVR",
+    "family": "머신러닝",
+    "role": "candidate",
+    "parameters": "kernel=rbf,C=10,epsilon=0.1",
+    "description": "커널 기반 서포트 벡터 회귀"
+  },
+  {
+    "id": "knn",
+    "name": "kNN",
+    "family": "머신러닝",
+    "role": "candidate",
+    "parameters": "n_neighbors=15,weights=distance",
+    "description": "비슷한 과거 입력 15개의 거리 가중 회귀"
+  },
+  {
+    "id": "random-forest",
+    "name": "Random Forest 분위수숲",
+    "family": "머신러닝",
+    "role": "candidate",
+    "parameters": "n_estimators=150,min_samples_leaf=8,max_depth=12",
+    "description": "리프 안의 실제 학습 판매량 분포를 합산"
+  },
+  {
+    "id": "extra-trees",
+    "name": "Extra Trees 분위수숲",
+    "family": "머신러닝",
+    "role": "candidate",
+    "parameters": "n_estimators=200,min_samples_leaf=10,max_depth=12,max_features=0.8",
+    "description": "무작위 분할 나무의 경험적 분위수 분포"
+  },
+  {
+    "id": "histogram-small",
+    "name": "히스토그램 부스팅 · 작은 나무",
+    "family": "머신러닝",
+    "role": "candidate",
+    "parameters": "max_leaf_nodes=7,max_iter=150,learning_rate=0.05",
+    "description": "작은 나무를 누적하는 분위수 부스팅"
+  },
+  {
+    "id": "histogram-medium",
+    "name": "히스토그램 부스팅 · 중간 나무",
+    "family": "머신러닝",
+    "role": "candidate",
+    "parameters": "max_leaf_nodes=15,max_iter=200,learning_rate=0.05",
+    "description": "중간 크기 나무의 분위수 부스팅"
+  },
+  {
+    "id": "histogram-large",
+    "name": "히스토그램 부스팅 · 큰 나무",
+    "family": "머신러닝",
+    "role": "candidate",
+    "parameters": "max_leaf_nodes=31,max_iter=250,learning_rate=0.05",
+    "description": "큰 나무의 분위수 부스팅"
+  },
+  {
+    "id": "lightgbm",
+    "name": "LightGBM",
+    "family": "머신러닝",
+    "role": "candidate",
+    "parameters": "objective=quantile,n_estimators=200,num_leaves=15,learning_rate=0.05",
+    "description": "리프 중심의 분위수 부스팅"
+  },
+  {
+    "id": "xgboost",
+    "name": "XGBoost",
+    "family": "머신러닝",
+    "role": "candidate",
+    "parameters": "objective=reg:quantileerror,n_estimators=200,max_depth=4,learning_rate=0.05",
+    "description": "네 분위수를 동시에 학습하는 트리 부스팅"
+  },
+  {
+    "id": "catboost",
+    "name": "CatBoost 분위수",
+    "family": "머신러닝",
+    "role": "candidate",
+    "parameters": "MultiQuantile,iterations=250,depth=4,learning_rate=0.05,l2_leaf_reg=3",
+    "description": "대칭 나무를 사용하는 다중 분위수 부스팅"
+  },
+  {
+    "id": "sarima",
+    "name": "SARIMA",
+    "family": "시계열",
+    "role": "candidate",
+    "parameters": "log1p(y),order=(1,0,1),seasonal_order=(1,0,0,7)",
+    "description": "주간 계절성과 자기회귀를 모델링"
+  },
+  {
+    "id": "state-space",
+    "name": "구조적 상태공간",
+    "family": "시계열",
+    "role": "candidate",
+    "parameters": "log1p(y),local linear trend,stochastic seasonal=7",
+    "description": "수준·추세·주간 계절 상태를 갱신"
+  },
+  {
+    "id": "holt",
+    "name": "감쇠 추세 Holt",
+    "family": "시계열",
+    "role": "candidate",
+    "parameters": "log1p(y),additive damped trend",
+    "description": "지속적으로 완화되는 추세를 추정"
+  },
+  {
+    "id": "ou-sde",
+    "name": "OU 확률미분방정식",
+    "family": "미분방정식",
+    "role": "candidate",
+    "parameters": "calendar-residual log sales,mean-reverting OU,Gaussian transition",
+    "description": "평균으로 돌아오는 확률적 판매 변동"
+  },
+  {
+    "id": "nonlinear-ode",
+    "name": "비선형 3차 ODE",
+    "family": "미분방정식",
+    "role": "candidate",
+    "parameters": "dz/dt=a-k*z-g*z^3,g>=0,Euler 20 steps/day",
+    "description": "3차 복원력으로 다음 날의 상태를 계산"
+  },
+  {
+    "id": "nonlinear-sde",
+    "name": "비선형 3차 SDE",
+    "family": "미분방정식",
+    "role": "candidate",
+    "parameters": "cubic drift,Euler-Maruyama 20 steps/day,256 paths",
+    "description": "3차 동역학에 확률적 변동을 추가"
+  },
+  {
+    "id": "mlp",
+    "name": "MLP",
+    "family": "딥러닝",
+    "role": "candidate",
+    "parameters": "PyTorch,2 seeds,80 epochs,batch=64",
+    "description": "달력·과거 판매 특징을 읽는 신경망"
+  },
+  {
+    "id": "lstm",
+    "name": "LSTM",
+    "family": "딥러닝",
+    "role": "candidate",
+    "parameters": "PyTorch,hidden=24,2 seeds,80 epochs,batch=64",
+    "description": "28일 흐름을 기억하는 순환 신경망"
+  },
+  {
+    "id": "gru",
+    "name": "GRU",
+    "family": "딥러닝",
+    "role": "candidate",
+    "parameters": "PyTorch,hidden=24,2 seeds,80 epochs,batch=64",
+    "description": "게이트를 사용해 과거 판매 흐름을 학습"
+  },
+  {
+    "id": "tcn",
+    "name": "TCN",
+    "family": "딥러닝",
+    "role": "candidate",
+    "parameters": "PyTorch,causal temporal convolutions,2 seeds,80 epochs",
+    "description": "시간 인과 합성곱으로 28일 흐름을 학습"
+  },
+  {
+    "id": "transformer",
+    "name": "Transformer",
+    "family": "딥러닝",
+    "role": "candidate",
+    "parameters": "PyTorch,d_model=16,2 heads,1 layer,2 seeds,80 epochs",
+    "description": "주의집중으로 과거 판매일 사이의 관계를 학습"
+  },
+  {
+    "id": "neural-ode",
+    "name": "Neural ODE",
+    "family": "딥러닝",
+    "role": "candidate",
+    "parameters": "PyTorch,learned drift,Euler integration,2 seeds,80 epochs",
+    "description": "학습된 미분방정식으로 숨은 상태를 전개"
+  },
+  {
+    "id": "custom-final",
+    "name": "내 최종 결합 모델",
+    "family": "내 모델",
+    "role": "custom",
+    "parameters": "0.2675427911011525 × Extra Trees + 0.7324572088988475 × 보정 앙상블",
+    "description": "ET·CatBoost·규모 정규화 CatBoost·스플라인·요일 기준의 보정 앙상블에 고정 내분 비율을 적용"
+  }
+]

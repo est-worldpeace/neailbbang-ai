@@ -1,0 +1,39 @@
+name: Audit rolling bakery recalibration
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  recalibrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OMP_NUM_THREADS: '2'
+      OPENBLAS_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+      PYTHONHASHSEED: '20260914'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - name: Install recalibration dependencies
+        run: python -m pip install numpy==2.3.5 pandas==3.0.1 scipy==1.17.1
+      - name: Restore preserved base predictions without retraining
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 34814876448 --repo "$GITHUB_REPOSITORY" --name bakery-benchmark-34814876448 --dir work/benchmark-34814876448
+      - name: Recalibrate and independently verify exported predictions
+        run: python research/rebuild/rolling_benchmark.py --source work/benchmark-34814876448
+      - name: Save verified audit artifacts
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: bakery-rolling-${{ github.run_id }}
+          retention-days: 90
+          if-no-files-found: error
+          path: public/research/rolling/**

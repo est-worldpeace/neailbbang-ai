@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "same974ObservationKeysForEverySeries": true,
+  "predictionRows": 4870,
+  "chronosScoredPredictionRows": 1948,
+  "uniqueActualInferenceContexts": 1297,
+  "contextsIncludeCalibrationDates": true,
+  "allContextsExactly512CalendarSlots": true,
+  "missingDatesRetainedAsNaN": true,
+  "everyContextEndsTargetMinusOneDay": true,
+  "ownAndFutureSourceMutationContextCases": 974,
+  "ownAndFutureSourceMutationActualModelCases": 54,
+  "everyScoredDayResidualMutationInvariant": true,
+  "originalSourceHashesPreserved": true,
+  "checkpointWeightSha256Verified": true,
+  "librariesMatchProtocolPins": true,
+  "officialQuantileInterpolationIndependentlyReconstructed": true,
+  "allFinite": true,
+  "duplicatePredictionKeys": 0,
+  "allMetricsRecomputedFromExportedCsv": true,
+  "fineTuned": false,
+  "nativeCrossingRows": 0,
+  "negativeRequestedQuantileCellsClipped": 0,
+  "folds": [
+    {
+      "splitId": "split-1",
+      "n": 370,
+      "calibrationForecastRows": 323,
+      "testForecastRows": 370,
+      "everyTargetResidualMutationCases": 370,
+      "everyCalibrationRowDateStrictlyBeforeTarget": true
+    },
+    {
+      "splitId": "split-2",
+      "n": 366,
+      "calibrationForecastRows": 334,
+      "testForecastRows": 366,
+      "everyTargetResidualMutationCases": 366,
+      "everyCalibrationRowDateStrictlyBeforeTarget": true
+    },
+    {
+      "splitId": "split-3",
+      "n": 238,
+      "calibrationForecastRows": 336,
+      "testForecastRows": 238,
+      "everyTargetResidualMutationCases": 238,
+      "everyCalibrationRowDateStrictlyBeforeTarget": true
+    }
+  ]
+}
